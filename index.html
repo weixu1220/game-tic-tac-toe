@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <div id="front">
+            <div class="wrapper">
+                <!-- colorblind friendly colors -->
+                <h1><span class = "red">Tic</span> <span class = "grey">Tac</span> <span class = "blue">Toe</span> </h1>
+                <form>
+                        <label for="name1">Player X's name:</label>
+                        <input type="text" id="name1" name="name1" placeholder="Player X's name">
+                </form>
+                <form>
+                        <label for="name2">Player O's name:</label>
+                        <input type="text" id="name2" name="name2" placeholder="Player O's name"> 
+                </form>
+                <button id="start">Start</button>
+            </div>
+            <footer>
+                <span>Viv R</span>
+                <span>June 2023</span>
+            </footer>
+        </div>
+        <div id="back">
+            <header>
+                <h1><span class = "red">Tic</span> <span class = "grey">Tac</span> <span class = "blue">Toe</span> </h1>
+                <h2 id="turn" class = "message"></h2>
+                
+            </header>
+            <main>
+                <div id = "board" class="x">
+                    <div id = "0" class="grid"></div>
+                    <div id = "1" class="grid"></div>
+                    <div id = "2" class="grid"></div>
+                    <div id = "3" class="grid"></div>
+                    <div id = "4" class="grid"></div>
+                    <div id = "5" class="grid"></div>
+                    <div id = "6" class="grid"></div>
+                    <div id = "7" class="grid"></div>
+                    <div id = "8" class="grid"></div>
+                </div>
+            </main>
+        </div>
+        <div id="win">
+            <h2 id="winM" class = "message"></h2>
+            <div>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

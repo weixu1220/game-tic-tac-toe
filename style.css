@@ -1,0 +1,217 @@
+* {
+    text-align: center;
+    font-size: 100%;
+}
+:root{
+    --grid-size:100px;
+    --mark-size:calc(var(--grid-size)*0.9)
+}
+body{
+    margin-top: 0;
+    margin-left: 0;
+}
+#container, #front, #back, #win{
+    width: 100vw;
+    height: 100vh;
+    max-width: 1200px;
+    max-height: 1000px;
+    margin-left:auto;
+    margin-right:auto;
+}
+#container{
+    position: relative;
+}
+#front{
+    background-color: whitesmoke;
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#back{
+    background-color: whitesmoke;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#win{
+    position:absolute;
+    z-index: 0;
+    background-color: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#win #winM{
+    font-size: 5rem;
+}
+
+.wrapper{
+    width: fit-content;
+}
+.wrapper h1{
+    font-size: 4em;
+    padding: 0.2em;
+    margin: 0.2em;
+}
+.red{
+    color:#D55E00;
+}
+.grey{
+    color:#999999;
+}
+.blue{
+    color:#0072B2;
+}
+#front form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:fit-content;
+    height:fit-content;
+    align-items: center;
+    padding: 0.2em;
+    margin: 0.2em;
+}
+footer{
+    width: fit-content;
+    font-size: 1em;
+    padding:1em;
+    margin:1em;
+}
+#front footer span{
+    font-size: 1em;
+    padding:0.2em;
+    margin:0.2em;
+}
+#front form label{
+    font-size: 1.5em;
+    width: fit-content;
+    padding: 0.2em;
+    margin: 0.2em;
+    color:#D55E00;
+}
+#name1, #name2{
+    width: fit-content;
+    font-size: 1.5em;
+    padding:0.2em;
+    margin:0.2em;
+}
+#start, #reset {
+    font-size: 2em;
+    padding: 0.2em;
+    width: 6em;
+    margin: 1em;
+    border-radius: 2em;
+    border:none;
+    background-color: #0072B2;
+    color:ghostwhite;
+}
+#start:hover, #reset:hover {
+    color:whitesmoke;
+    background-color:#D55E00;
+    box-shadow:0 0 5px 5px black ;
+}
+
+#back h1{
+    font-size: 3em;
+    padding:0.2em;
+}
+#turn{
+    font-size: 1.5em;
+}
+
+#board{
+    display: grid;
+    grid-template-rows: 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px;
+    width:fit-content;
+    justify-content: center;
+    align-items: center;
+    margin:0.2em;
+    padding: 0.2em;
+}
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: 2px solid black;
+    width:var(--grid-size);
+    height:var(--grid-size);
+    font-size: 5em;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+.grid.x, .grid.o{
+    cursor: not-allowed;
+}
+
+.grid:first-child, .grid:nth-child(2), .grid:nth-child(3){
+    border-top:none;
+}
+.grid:nth-child(3n+1){
+    border-left: none;
+}
+.grid:nth-child(3n+3){
+    border-right: none;
+}
+.grid:nth-child(7),.grid:nth-child(8),.grid:last-child{
+    border-bottom: none;
+}
+.grid.x::before, .grid.x::after,
+#board.x .grid:not(.x):not(.o):hover::before,
+#board.x .grid:not(.x):not(.o):hover::after
+{
+    content:"";
+    position: absolute; 
+    width:calc(var(--grid-size)*.15);
+    height:calc(var(--grid-size)*.9);
+    background-color:#D55E00;
+}
+.grid.x::before,
+#board.x .grid:not(.x):not(.o):hover::before{
+    transform:rotate(45deg);
+}
+.grid.x::after,
+#board.x .grid:not(.x):not(.o):hover::after{
+    transform:rotate(-45deg);
+}
+.grid.o::before, .grid.o::after,
+#board.o .grid:not(.x):not(.o):hover::before,
+#board.o .grid:not(.x):not(.o):hover::after
+{
+    content:"";
+    position: absolute; 
+    border-radius: 50%;
+}
+.grid.o::before,
+#board.o .grid:not(.x):not(.o):hover::before{
+    background-color:#0072B2;
+    width:calc(var(--mark-size));
+    height:calc(var(--mark-size));
+}
+.grid.o::after,
+#board.o .grid:not(.x):not(.o):hover::after{
+    background-color: ghostwhite;
+    width:calc(var(--mark-size)*.7);
+    height:calc(var(--mark-size)*.7);
+}
+#board.x .grid:not(.x):not(.o):hover::before,
+#board.x .grid:not(.x):not(.o):hover::after,
+#board.o .grid:not(.x):not(.o):hover::before{
+    background-color: #999999;
+}
+#board.o .grid:not(.x):not(.o):hover::after{
+    background-color: ghostwhite;
+}
+
+#winM{
+    font-size: 1.5em;
+}

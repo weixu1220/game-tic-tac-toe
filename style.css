@@ -20,6 +20,9 @@ body{
 }
 #container{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
 }
 #front{
     background-color: whitesmoke;
@@ -214,4 +217,8 @@ footer{
 
 #winM{
     font-size: 1.5em;
+}
+#bgm{
+    position: absolute;
+    z-index: 5;
 }

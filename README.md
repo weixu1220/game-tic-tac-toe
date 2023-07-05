@@ -1,4 +1,5 @@
 # Tic Tac Toe
+This game is playable on https://weixu1220.github.io/game-tic-tac-toe/
 ## Features
 ### Hover move display
 ### Background music and soudn effects

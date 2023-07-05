@@ -1,4 +1,10 @@
-const sound1 = new Audio("sound/sound1.mp3")
+const sound1 = new Audio("./sounds/sound1.mp3")
+const bgm = document.getElementById("bgm");
+const cheer = new Audio("./sounds/cheer.mp3");
+const sad = new Audio("./sounds/cartoon_fail_strings_trumpet.mp3")
+bgm.loop = true;
+cheer.loop = true;
+sad.loop = true;
 const board= document.getElementById("board");
 const zero = document.getElementById("0");
 const one = document.getElementById("1");
@@ -54,6 +60,8 @@ start.onclick = function(){
 }
 //reset
 reset.onclick = function(){
+    cheer.pause();
+    sad.pause();
     sound1.play();
     moves = ["", "", "", "", "", "", "", "", ""];
     zero.classList = "grid";
@@ -66,7 +74,7 @@ reset.onclick = function(){
     seven.classList = "grid";
     eight.classList = "grid";
     counter = 0;
-    index
+    bgm.muted = false;
     win.style.zIndex = "0";
 }
 //switch between X and O
@@ -163,12 +171,17 @@ const checkWin = () => {
             let b = condition[1];
             let c = condition[2];
             if (moves[a]=== currentMove && moves[b]=== currentMove && moves[c] === currentMove){
-                console.log("x win");
+                bgm.muted = true;
+                cheer.play();
+                sad.pause();
                 winM.innerHTML = `${currentPlayer} won!`;
                 win.style.zIndex = "3";
                 return
             }
             if(counter === 9){
+                bgm.muted = true;
+                cheer.pause();
+                sad.play();
                 winM.innerHTML = `It's a draw!`;
                 win.style.zIndex = "3";
             }
